@@ -14,17 +14,18 @@ $imagen = $_FILES['imagen']['name'];
 
 // Mover la imagen subida a una carpeta en el servidor
 if ($_FILES['imagen']['tmp_name']) {
-    $ruta = "img/" . $_FILES['imagen']['name'];
+    $ruta = "../img" . $_FILES['imagen']['name'];
     move_uploaded_file($_FILES['imagen']['tmp_name'], $ruta);
 } else {
     $ruta = null;
 }
 
 // Crear la sentencia SQL para insertar los datos
-$sql = "INSERT INTO contactos ( nombre, apellidos, tel, email, comment, img) VALUES ( '$nombre', '$apellidos', '$telefono', '$email', '$comentario', '$imagen')";
+$sql = "INSERT INTO contactos ( nombre, apellidos, tel, email, comment, img) VALUES ( '$nombre', '$apellidos', '$telefono', '$email', '$comentario', '$ruta')";
 //mysql_query($sql, $link)
 if (mysqli_query($link, $sql)) {
     echo "Datos insertados correctamente";
+    header("Location: sql.php");
 } else {
     echo "Error al insertar datos: " . mysqli_error($link);
 }

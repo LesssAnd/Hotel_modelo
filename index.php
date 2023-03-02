@@ -165,7 +165,7 @@
 		<!-- Footer
 		============================================= 
 		<footer id="footer" class="dark">
-		</footer><!-- #footer end -->
+		</footer> #footer end -->
 
 
 		<section id="footer" class="dark">

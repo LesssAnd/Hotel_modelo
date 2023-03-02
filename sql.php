@@ -5,22 +5,26 @@
 <link rel="stylesheet" href="https://cdn.datatables.net/1.13.2/js/dataTables.bootstrap5.min.js" type="javascript" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-<form method="post" action="insert_db.php">
+<form method="post" action="insert_db.php" style="margin-top:25px;">
   <label for="id">Click aqui para agregar datos:</label>
   <button type="submit" name="submit">Agregar</button>
+</form>
+
+<form method="get" action="buscar.php" style="margin-top:2px; margin-left:22%" >
+  <label for="id">Buscar:</label>
+  <input type="text" name="id"  >
+  <button type="submit" name="submit">Buscar</button>
 </form>
 <?php
 
 include 'conexion.php';
-
-
 
 mysqli_select_db($link, 'welcome_app' );
 $sql1 = 'SELECT * FROM contactos';
 $resultado = mysqli_query($link, $sql1);
 if(mysqli_num_rows($resultado) > 0){
   $table = '
-   <table border=1>
+   <table id "example" border=5 class="table table-striped table-bordered" >
                     <tr>
                          <th>ID </th>
                          <th>Nombre </th>
@@ -30,8 +34,9 @@ if(mysqli_num_rows($resultado) > 0){
                          <th>Comment</th>
                          <th>IMG</th>
                          <th>Status</th>
-                         <th>Accion</th>
-
+                         <th>Borrar registros</th>
+                         <th>Update datos</th>
+                         <th>Status del registro</th>
                          <th>   </th>
 
                     </tr>
@@ -44,29 +49,22 @@ if(mysqli_num_rows($resultado) > 0){
                          <td>'.$row["tel"].'</td>
                          <td>'.$row["email"].'</td>
                          <td>'.$row["comment"].'</td>
-                         <td>'.$row["img"].'</td>
+                         <td><img src='.$row["img"].' style="width: 100px; height: auto;" ></td>
                          <td>'.$row["habilitar"].'</td>
                          <td><a href="delete.php?id='. $row["id"] .'   "> Borrar</a></td>
-                         <td><a href="modify.php?id='. $row["id"] .' ">Modificar</a></td>
+                         <td><a href="alter.php?id='. $row["id"] .' ">Update</a></td>
+                         <td><a href="modify.php?id='. $row["id"] .' ">Habilitar</a></td>
+                         
                     </tr>';
   }
   $table .= '</table>';
   echo $table;
-  echo 'Edita algún registro';
  }
 ?>
 <script type= "text/javascript">
+
 $(document).ready(function () {
     
-    $(<?=$table?>).DataTable();
+    $('#example').DataTable();
 });</script>
-
-
-
-<form method="post" action="alter.php">
-  <label for="id">ID:</label>
-  <input type="text" id="id" name="id">
-  <button type="submit" name="submit">Comprobar ID</button>
-</form>
-
 

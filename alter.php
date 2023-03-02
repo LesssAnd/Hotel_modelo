@@ -1,18 +1,11 @@
 <?php
 include 'conexion.php';
 
-$id = $_POST['id'];
+$id = $_GET['id'];
 mysqli_select_db($link, 'welcome_app' );
 $sql1 = "SELECT * FROM contactos WHERE id = '$id' ";
-// Consulta SQL
-if (mysqli_num_rows(mysqli_query($link, $sql1)) > 0) {
-    echo "Dato existente";
-    
-} else {
-    echo "El campo no se puede modificar porque no existe " ;
-    //header("Location: sql.php");
-}
-
+$tabla = mysqli_query($link, $sql1);
+$row = mysqli_fetch_array($tabla);
 ?>
 
 <html>
@@ -22,32 +15,36 @@ if (mysqli_num_rows(mysqli_query($link, $sql1)) > 0) {
 <body>
     <h1>Modificando datos:</h1>
     <form action="alter2.php" method="POST" enctype="multipart/form-data">
-        <label for="id">ID:</label>
-        <input type="text" name="id" required> <br>
 
+        <label for="id">ID:</label>
+        <input type="text" name="id"  value=<?php echo $row["id"]?>  readonly><br>
+       
         <label for="nombre">Nombre:</label>
-        <input type="text" name="nombre" ><br>
+        <input type="text" name="nombre" value=<?php echo $row["nombre"]?>><br>
 
         <label for="apellidos">Apellidos:</label>
-        <input type="text" name="apellidos" ><br>
+        <input type="text" name="apellidos" value=<?php echo $row["apellidos"]?>><br>
 
         <label for="telefono">Teléfono:</label>
-        <input type="tel" name="telefono" ><br>
+        <input type="tel" name="telefono" value=<?php echo $row["tel"]?>><br>
 
         <label for="email">Email:</label>
-        <input type="email" name="email" ><br>
+        <input type="email" name="email" value=<?php echo $row["email"]?>><br>
 
         <label for="comentario">Comentario:</label><br>
-        <textarea name="comentario" rows="5" cols="30"></textarea><br>
+        <textarea name="comentario" rows="5" cols="30"value=<?php echo $row["comment"]?>></textarea><br>
 
         <label for="imagen">Imagen:</label>
-        <input type="file" name="imagen"><br>
+        <input type="file" name="imagen" value=<?php echo $row["img"]?>><br>
 
-        <input type="submit" name="submit" value="Registrar">
+        <input type="radio" id="habilita" name="habilita" class="custom-control-input" value= 1>
+        <label class="custom-control-label" for="customRadio1">Habilitar Registro</label><br>
+        <input type="radio" id="habilita" name="habilita" class="custom-control-input" value = 0>
+        <label class="custom-control-label" for="customRadio2">Deshabilitar registro</label><br>
+        <input type="submit" name="submit" value="Update">
     </form>
 </body>
 </html>
 
-  
 
 
