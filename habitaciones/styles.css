@@ -1,0 +1,229 @@
+:root {
+	--main-bg-color: rgb(15, 15, 15);
+	--main-detail-color: #e6b223;
+	--main-font-color: rgb(240, 240, 240);
+	--main-border-radius: 1rem;
+	--item-padding: 0.7rem;
+	--section-padding: 1rem;
+	--header-padding: 1.5rem;
+}
+body {
+	background-color: var(--main-bg-color);
+	color: var(--main-font-color);
+}
+h1,
+h2 {
+	padding-top: var(--header-padding);
+	padding-bottom: var(--header-padding);
+}
+h1,
+h2,
+h3 {
+	color: var(--main-detail-color);
+}
+h4 {
+	font-size: large;
+	font-weight: bold;
+	margin-top: 10px;
+}
+
+/*-- Table --*/
+.table {
+	color: var(--main-font-color);
+}
+.table .cell-right {
+	text-align: right;
+}
+
+.question h2 {
+	padding-bottom: var(--section-padding);
+}
+a {
+	color: var(--main-detail-color);
+}
+.menu-section {
+	margin-top: var(--header-padding);
+}
+.menu-title {
+	font-size: x-large;
+}
+.menu-item-title {
+	margin-top: 10px;
+}
+.menu-item-desc {
+	font-size: small;
+}
+.dots {
+	overflow: hidden;
+	white-space: nowrap;
+}
+.dots:after {
+	content: " ...................................................................................................................................................................................................................................................................................................................";
+}
+.button-toolbar {
+	overflow-x: auto;
+	white-space: nowrap;
+}
+.button-toolbar > btn {
+	display: inline-block;
+	float: none;
+}
+hr {
+	background-color: var(--main-detail-color);
+	margin-top: 0px;
+}
+
+/*-- Back to top button --*/
+.back-to-top {
+	display: none;
+	position: fixed;
+	bottom: var(--header-padding);
+	right: var(--header-padding);
+	z-index: 9;
+	border: none;
+	cursor: pointer;
+	background-color: rgba(100, 100, 100, 0.6);
+}
+.back-to-top:focus {
+	box-shadow: none;
+}
+.back-to-top:hover {
+	background-color: rgba(100, 100, 100, 0.6);
+}
+.back-to-top img {
+	max-width: 1rem;
+}
+
+/*-- Icons --*/
+.bi {
+	vertical-align: -0.125em;
+	fill: currentColor;
+}
+
+/*-- Room cards --*/
+.room-card {
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	overflow: hidden;
+	height: 100%;
+	border-radius: var(--main-border-radius);
+	color: var(--main-font-color);
+	transition: 0.4s ease-in-out;
+}
+.room-card h3,
+.room-card h4 {
+	color: var(--main-font-color);
+}
+.room-card:hover {
+	transform: rotate(-1deg);
+}
+.room-card a {
+	color: inherit;
+	text-decoration: none;
+}
+.room-header {
+	position: absolute;
+	top: 0;
+	left: 0;
+	padding: 1rem 0 0 1rem;
+}
+.room-footer {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	padding: 0 1rem 1rem 0;
+}
+.room-img img {
+	display: block;
+	width: 100%;
+	overflow: hidden;
+}
+.room-img::after {
+	content: "";
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0), rgba(0, 0, 0, 1));
+}
+
+/*-- Carousel --*/
+.carousel {
+	padding-top: var(--section-padding);
+	padding-bottom: var(--section-padding);
+}
+.carousel-inner {
+	border-radius: var(--main-border-radius);
+}
+
+/*-- List --*/
+.item-list {
+	list-style: none;
+}
+
+.item-list li {
+	display: flex;
+	padding-bottom: var(--item-padding);
+}
+
+.item-list svg {
+	margin-right: var(--section-padding);
+}
+
+/*-- Nav --*/
+.navbar {
+	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2);
+}
+.nav-brand {
+	padding-right: var(--item-padding);
+	transition: 0.4s ease-in-out;
+}
+.nav-brand:hover {
+	transform: rotate(-5deg);
+}
+
+#map {
+	height: 22rem;
+	border-radius: var(--main-border-radius);
+}
+
+/*-- Carousel --*/
+.carousel-inner {
+	max-height: 400px;
+}
+.carousel-item img {
+	margin: auto;
+}
+
+/*-- Alerts --*/
+.alertResponse {
+	padding-top: var(--section-padding);
+}
+
+/*-- Promo --*/
+.promo {
+	padding: var(--section-padding);
+	margin-bottom: var(--section-padding);
+	border-radius: var(--main-border-radius);
+	background-color: var(--main-detail-color);
+	color: var(--main-bg-color);
+}
+.promo h3 {
+	color: var(--main-bg-color);
+}
+
+/*-- Home Services --*/
+@media (max-width: 575.98px) {
+	.services .row {
+		padding-top: var(--section-padding);
+		padding-bottom: var(--section-padding);
+	}
+	.services .service-icon {
+		padding-bottom: var(--item-padding);
+	}
+}
+.services .service-icon {
+	text-align: center;
+}
