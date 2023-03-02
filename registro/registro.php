@@ -5,8 +5,7 @@
 
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 	<meta name="kopernet" content="Kopernet.com" />
-	<meta name="description" content="Activa tu tarjeta Love Points y empieza a ganar puntos por cada visita." />
-	<meta name="keywords" content="programa de lealtad, V Motel, love points, puntos, motel, hotel, recompensas" />
+
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 
 	<!-- Stylesheets
@@ -24,7 +23,7 @@
 
 	<!-- Document Title
 	============================================= -->
-	<title>Reg&iacute;strate | Love Points</title>
+	<title>Reg&iacute;strate | Hotel Modelo</title>
 	<link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
 	<link rel="icon" href="./favicon.ico" type="image/x-icon">
 	<style>
